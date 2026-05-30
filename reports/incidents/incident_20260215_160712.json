@@ -1,0 +1,49 @@
+{
+  "incident_type": "Model Monitoring Alert",
+  "batch_risk_level": "High Risk",
+  "decision": "Escalate: Significant feature and prediction drift detected.",
+  "summary_metrics": {
+    "severe_feature_drift_count": 2,
+    "moderate_feature_drift_count": 0,
+    "prediction_psi": 0.5454011381130935,
+    "auc_baseline": 0.7100416888711254,
+    "auc_drifted": 0.6944393423196562,
+    "auc_drop": 0.015602346551469193
+  },
+  "top_drift_features": [
+    {
+      "feature": "PAY_0",
+      "PSI": 1.983256732331724,
+      "Drift_Level": "Severe Drift"
+    },
+    {
+      "feature": "LIMIT_BAL",
+      "PSI": 0.434594027897233,
+      "Drift_Level": "Severe Drift"
+    },
+    {
+      "feature": "BILL_AMT6",
+      "PSI": 0.014470424699483356,
+      "Drift_Level": "Stable"
+    },
+    {
+      "feature": "PAY_AMT5",
+      "PSI": 0.012712095696392242,
+      "Drift_Level": "Stable"
+    },
+    {
+      "feature": "BILL_AMT5",
+      "PSI": 0.010067571277132776,
+      "Drift_Level": "Stable"
+    }
+  ],
+  "recommended_actions": [
+    "Notify model owner + risk team",
+    "Run deeper diagnostics (SHAP / feature importance shift)",
+    "Freeze automated decisioning if high-stakes",
+    "Collect additional validation data",
+    "Prepare retraining plan (do not retrain automatically)"
+  ],
+  "requires_human_approval": true,
+  "human_approval_status": "PENDING"
+}
