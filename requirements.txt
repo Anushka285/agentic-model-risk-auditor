@@ -1,3 +1,4 @@
+streamlit
 pandas
 numpy
 scikit-learn
@@ -5,4 +6,4 @@ openpyxl
 jupyter
 matplotlib
 seaborn
-streamlit
+plotly
