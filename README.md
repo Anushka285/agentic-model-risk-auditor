@@ -145,27 +145,27 @@ Python • Streamlit • Pandas • NumPy • Scikit-Learn • Plotly • GitHub
 
 ### 🏠 Landing Page
 
-(Add Home Page Screenshot)
+![Landing Page](images/landing-page.png)
 
 ### 📊 Executive Dashboard
 
-(Add Dashboard Screenshot)
+![Executive Dashboard](images/executive-dashboard.png)
 
 ### 📈 Drift Analysis
 
-(Add Drift Analysis Screenshot)
+![Drift Analysis](images/drift-analysis.png)
 
 ### 🚨 Incident Report
 
-(Add Incident Report Screenshot)
+![Incident Report](images/incident-reports.png)
 
 ### 🤖 Agent Decision
 
-(Add Agent Decision Screenshot)
+![Agent Decision](images/agent-decision.png)
 
 ### 👤 Human Approval
 
-(Add Human Approval Screenshot)
+![Human Approval](images/human-approval.png)
 
 ---
 
