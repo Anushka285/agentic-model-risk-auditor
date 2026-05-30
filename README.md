@@ -1,366 +1,229 @@
 # 🛡️ Agentic Model Risk Auditor
 
-> An autonomous AI governance system that monitors deployed machine learning models, detects drift, evaluates operational risk, generates incident reports, and escalates high-risk situations through a Human-in-the-Loop approval workflow.
+### AI Governance System for Monitoring Model Drift, Risk Escalation, and Human Approval
+
+🌐 **Live Demo:** https://agentic-model-risk-auditor.streamlit.app/
 
 ---
 
-## 🚀 Project Overview
+## Overview
 
-Machine learning models do not fail overnight.
+Agentic Model Risk Auditor is an AI governance platform that simulates how organizations monitor machine learning models after deployment.
 
-They gradually become unreliable as customer behavior, economic conditions, and input data distributions change over time.
+The system continuously evaluates incoming production data, detects feature and prediction drift, assesses operational risk, generates audit-ready incident reports, and routes high-risk situations through a Human-in-the-Loop approval workflow.
 
-In industries such as banking, lending, insurance, and fraud detection, undetected model drift can lead to:
+Unlike traditional monitoring dashboards that only display metrics, this system demonstrates an agentic decision process:
 
-- Financial losses
-- Poor business decisions
-- Regulatory violations
-- Increased operational risk
-- Reduced model trustworthiness
-
-To address this challenge, I built an **Agentic Model Risk Auditor** — an autonomous monitoring system that continuously evaluates deployed machine learning models and determines when human intervention is required.
-
-Unlike traditional dashboards that only display metrics, this system actively:
-
-✅ Observes model behavior
-
-✅ Detects feature and prediction drift
-
-✅ Assesses risk severity
-
-✅ Generates incident reports
-
-✅ Recommends actions
-
-✅ Escalates critical cases for human review
+**Observe → Detect → Evaluate → Decide → Escalate → Human Approval**
 
 ---
 
-## 🎯 Business Problem
+## Business Problem
 
-Organizations often invest significant resources into training machine learning models but spend far less effort monitoring them after deployment.
+Machine learning models degrade over time as customer behavior, economic conditions, and data distributions evolve.
 
-As production data evolves, models can become less reliable without any visible warning signs.
+Without proper monitoring, model drift can lead to:
 
-The goal of this project is to create an intelligent oversight layer capable of identifying model degradation before it causes business impact.
+* Poor business decisions
+* Financial losses
+* Regulatory risk
+* Reduced model reliability
+* Compliance concerns
+
+This project demonstrates how AI governance systems can identify these risks before they impact production decisions.
 
 ---
 
-## 🏗️ System Architecture
+## Key Features
+
+### 🏠 Executive Dashboard
+
+* Real-time risk overview
+* Drift severity monitoring
+* Risk classification
+* Approval status tracking
+* Executive-level incident summary
+
+### 📊 Drift Analysis
+
+* Population Stability Index (PSI) monitoring
+* Drift severity classification
+* Feature-level drift investigation
+* Visual drift analysis dashboard
+
+### 🚨 Incident Reports
+
+* Structured audit-ready reports
+* Escalation rationale
+* Governance requirements
+* Investigation records
+
+### 🤖 Agent Decision Engine
+
+* Autonomous risk evaluation
+* Escalation reasoning
+* Recommended remediation actions
+* Agentic decision workflow
+
+### 👤 Human-in-the-Loop Governance
+
+* Human approval workflow
+* Escalation management
+* Governance controls
+* Production intervention safeguards
+
+---
+
+## System Workflow
 
 ```text
-Production Data Batch
-          │
-          ▼
- ┌─────────────────┐
- │ Monitoring Layer │
- └─────────────────┘
-          │
-          ▼
- ┌─────────────────┐
- │ Drift Detection │
- │   PSI Analysis  │
- └─────────────────┘
-          │
-          ▼
- ┌─────────────────┐
- │ Risk Scoring    │
- └─────────────────┘
-          │
-          ▼
- ┌─────────────────┐
- │ Agent Decision  │
- └─────────────────┘
-          │
-          ▼
- ┌─────────────────┐
- │ Incident Report │
- └─────────────────┘
-          │
-          ▼
- Human Approval Layer
+Production Data
+       │
+       ▼
+Observe
+       │
+       ▼
+Detect Drift
+       │
+       ▼
+Evaluate Risk
+       │
+       ▼
+Agent Decision
+       │
+       ▼
+Incident Report
+       │
+       ▼
+Human Approval
 ```
 
 ---
 
-## 🤖 Agentic Workflow
-
-The system follows a decision-making loop similar to an autonomous AI agent:
-
-### 1. Observe
-
-Monitors:
-
-- Feature distributions
-- Model predictions
-- Batch behavior
-- Performance metrics
-
-### 2. Detect
-
-Identifies:
-
-- Feature Drift
-- Prediction Drift
-- Distribution Shifts
-
-### 3. Evaluate
-
-Calculates:
-
-- Population Stability Index (PSI)
-- Drift Severity Levels
-- Risk Classification
-
-### 4. Decide
-
-Determines whether the situation is:
-
-- Stable
-- Low Risk
-- Medium Risk
-- High Risk
-
-### 5. Escalate
-
-Generates structured incident reports and recommends next actions.
-
-### 6. Human-in-the-Loop Governance
-
-No automated intervention occurs without human approval.
-
----
-
-## 📊 Dataset
-
-### Default of Credit Card Clients Dataset
-
-The project uses a real-world credit risk dataset containing customer payment behavior and default information.
-
-Key characteristics:
-
-- 30,000 customer records
-- Credit risk prediction problem
-- Binary target variable:
-  - Default
-  - No Default
-
-This domain was selected because model failures in financial decision systems can have significant business and regulatory consequences.
-
----
-
-## ⚙️ Technologies Used
-
-### Programming
-
-- Python
-
-### Data Science
-
-- Pandas
-- NumPy
-- Scikit-Learn
-
-### Monitoring & Evaluation
-
-- Population Stability Index (PSI)
-- AUC (Area Under ROC Curve)
-
-### Development
-
-- Jupyter Notebook
-- Git
-- GitHub
-
----
-
-## 🔍 Drift Detection Methodology
+## Drift Detection Methodology
 
 ### Feature Drift
 
-Population Stability Index (PSI) is calculated for every feature.
+Population Stability Index (PSI) is used to compare incoming production data against baseline distributions.
 
-Drift Levels:
-
-| PSI Value | Classification |
-|------------|---------------|
-| < 0.10 | Stable |
+| PSI Range   | Classification |
+| ----------- | -------------- |
+| < 0.10      | Stable         |
 | 0.10 – 0.25 | Moderate Drift |
-| > 0.25 | Severe Drift |
-
----
+| > 0.25      | Severe Drift   |
 
 ### Prediction Drift
 
-The system compares prediction probability distributions between baseline and incoming production batches.
-
-A significant shift may indicate changing model behavior.
-
----
+The system monitors changes in prediction distributions to identify model behavior shifts.
 
 ### Performance Monitoring
 
-The system tracks:
+The monitoring layer tracks:
 
-- Baseline AUC
-- Current AUC
-- AUC Degradation
-
-to identify performance deterioration.
-
----
-
-## 🚨 Risk Classification Logic
-
-The monitoring agent automatically classifies risk levels.
-
-### Stable
-
-No significant drift detected.
-
-### Low Risk
-
-Minor drift requiring observation.
-
-### Medium Risk
-
-Multiple moderate drift signals detected.
-
-### High Risk
-
-Severe drift detected requiring escalation.
+* Baseline AUC
+* Drifted AUC
+* Performance degradation
+* Risk severity
 
 ---
 
-## 📄 Example Incident Report
+## Technology Stack
 
-```json
-{
-  "batch_risk_level": "High Risk",
-  "decision": "Escalate: Significant feature and prediction drift detected.",
-  "prediction_psi": 0.545,
-  "auc_drop": 0.0156,
-  "requires_human_approval": true
-}
-```
+Python • Streamlit • Pandas • NumPy • Scikit-Learn • Plotly • GitHub
 
 ---
 
-## 📸 Project Screenshots
+### Monitoring & Governance
 
-### Data Understanding
-
-(Add screenshot here)
-
-### Baseline Model Performance
-
-(Add screenshot here)
-
-### Drift Detection Results
-
-(Add screenshot here)
-
-### Agent Risk Decision
-
-(Add screenshot here)
-
-### Incident Report Output
-
-(Add screenshot here)
+* Population Stability Index (PSI)
+* Risk Classification Engine
+* Human-in-the-Loop Approval Workflow
 
 ---
 
-## 📁 Repository Structure
+## Application Screens
+
+### 🏠 Landing Page
+
+(Add Home Page Screenshot)
+
+### 📊 Executive Dashboard
+
+(Add Dashboard Screenshot)
+
+### 📈 Drift Analysis
+
+(Add Drift Analysis Screenshot)
+
+### 🚨 Incident Report
+
+(Add Incident Report Screenshot)
+
+### 🤖 Agent Decision
+
+(Add Agent Decision Screenshot)
+
+### 👤 Human Approval
+
+(Add Human Approval Screenshot)
+
+---
+
+## Repository Structure
 
 ```text
 agentic-model-risk-auditor/
 
 ├── data/
 ├── notebooks/
-│   ├── 01_data_understanding.ipynb
-│   ├── 02_baseline_model.ipynb
-│   ├── 03_drift_simulation_and_detection.ipynb
-│   └── 04_agent_decision_and_incident_report.ipynb
+├── pages/
+│   ├── Dashboard.py
+│   ├── Drift_Analysis.py
+│   ├── Incident_Reports.py
+│   ├── Agent_Decision.py
+│   └── Human_Approval.py
 │
 ├── reports/
-│   └── incidents/
-│
 ├── src/
-│   ├── __init__.py
-│   ├── monitoring.py
-│   └── utils.py
 │
-├── main.py
+├── app.py
 ├── requirements.txt
 └── README.md
 ```
 
 ---
 
-## ▶️ How To Run
+## Run Locally
 
-### Clone Repository
+Clone the repository:
 
 ```bash
 git clone https://github.com/Anushka285/agentic-model-risk-auditor.git
+cd agentic-model-risk-auditor
 ```
 
-### Install Dependencies
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Run Monitoring
+Launch the application:
 
 ```bash
-python main.py
+streamlit run app.py
 ```
 
-The system will:
-
-- Load the credit risk dataset
-- Train a baseline model
-- Simulate production drift
-- Detect distribution changes
-- Generate a risk assessment
-- Produce an incident report
-
 ---
 
-## 🎓 Key Learnings
+## Skills Demonstrated
 
-Through this project I gained hands-on experience in:
+* Machine Learning Monitoring
+* AI Governance
+* Drift Detection
+* Model Risk Management
+* Human-in-the-Loop Systems
+* Streamlit Application Development
+* Responsible AI
+* Risk Escalation Workflows
 
-- Model Risk Management
-- AI Governance
-- Drift Detection
-- Production Monitoring Concepts
-- Human-in-the-Loop Systems
-- Credit Risk Analytics
-- Machine Learning Operations (MLOps)
-
----
-
-## 🔮 Future Improvements
-
-Planned enhancements include:
-
-- SHAP-based explainability
-- Fairness monitoring
-- Concept drift detection
-- Streamlit dashboard
-- Automated alerting
-- MLflow integration
-- Real-time monitoring pipelines
-
----
-
-## 👩‍💻 Author
-
-**Anushka Kadam**
-
-Master's in Business Analytics  
-University of North Texas
-
-Passionate about Data Analytics, AI Systems, Machine Learning Monitoring, and Responsible AI.
